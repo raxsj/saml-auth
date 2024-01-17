@@ -35,7 +35,7 @@ def safer_associate_by_email(backend, details, user=None, *args, **kwargs):
             )
         else:
             if users[0].is_staff or users[0].is_superuser:
-                raise EoxTenantAuthException(
+                raise UAMxAuthException(
                     backend,
                     'It is not allowed to auto associate staff or admin users'
                 )
