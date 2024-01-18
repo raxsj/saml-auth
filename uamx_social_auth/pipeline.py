@@ -34,10 +34,10 @@ def safer_associate_by_email(backend, details, user=None, *args, **kwargs):
                 'The given email address is associated with more than one account'
             )
         else:
-            if users[0].is_staff or users[0].is_superuser:
-                raise UAMxAuthException(
-                    backend,
-                    'It is not allowed to auto associate staff or admin users'
-                )
+            # if users[0].is_staff or users[0].is_superuser:
+            #     raise UAMxAuthException(
+            #         backend,
+            #         'It is not allowed to auto associate staff or admin users'
+            #     )
             return {'user': users[0],
                     'is_new': False}
