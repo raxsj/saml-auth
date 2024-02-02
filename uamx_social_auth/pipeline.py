@@ -1,3 +1,19 @@
+from django.http import HttpResponse
+from openedx_filters import PipelineStep
+from openedx_filters.learning.filters import (
+    # AccountSettingsRenderStarted,
+    # CertificateCreationRequested,
+    # CertificateRenderStarted,
+    # CohortAssignmentRequested,
+    # CohortChangeRequested,
+    # CourseAboutRenderStarted,
+    # CourseEnrollmentStarted,
+    # CourseUnenrollmentStarted,
+    # DashboardRenderStarted,
+    StudentLoginRequested,
+    StudentRegistrationRequested,
+)
+
 # Modified from: https://github.com/eduNEXT/eox-tenant/blob/master/eox_tenant/pipeline.py
 
 class UAMxAuthException(ValueError):
@@ -41,3 +57,50 @@ def safer_associate_by_email(backend, details, user=None, *args, **kwargs):
             #     )
             return {'user': users[0],
                     'is_new': False}
+
+class StopUAMDomainRegister(PipelineStep):
+    """
+    Stop registration process raising PreventRegister exception.
+
+    Example usage:
+
+    Add the following configurations to your configuration file:
+
+        "OPEN_EDX_FILTERS_CONFIG": {
+            "org.openedx.learning.student.registration.requested.v1": {
+                "fail_silently": false,
+                "pipeline": [
+                    "openedx_filters_samples.samples.pipeline.StopUAMDomainRegister"
+                ]
+            }
+        }
+    """
+    def run_filter(self, form_data, *args, **kwargs):
+        if form_data["email"].endswith("uam.es"):
+            raise StudentRegistrationRequested.PreventRegistration(
+                "You can't register. UAM users should use ID-UAM.", status_code=403
+            )
+
+class StopUAMDomainLogin(PipelineStep):
+    """
+    Stop login process raising PreventLogin exception.
+
+    Example usage:
+
+    Add the following configurations to your configuration file:
+
+        "OPEN_EDX_FILTERS_CONFIG": {
+            "org.openedx.learning.student.login.requested.v1": {
+                "fail_silently": false,
+                "pipeline": [
+                    "openedx_filters_samples.samples.pipeline.StopUAMDomainLogin"
+                ]
+            }
+        }
+    """
+
+    def run_filter(self, user, *args, **kwargs):  # pylint: disable=arguments-differ
+        if user.email.endswith("uam.es"):
+            raise StudentLoginRequested.PreventLogin(
+                "You can't login. UAM users should use ID-UAM.", redirect_to="", error_code="pre-register-login-forbidden"
+            )
