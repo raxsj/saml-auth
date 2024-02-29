@@ -157,4 +157,11 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
     ],
+    entry_points={
+        "lms.djangoapp": [
+            "uamx_social_auth = uamx_social_auth.apps:UamxSocialAuthConfig",
+        ],
+        "cms.djangoapp": [
+        ],
+    }
 )
