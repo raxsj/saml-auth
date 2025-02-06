@@ -70,7 +70,9 @@ class StopUAMDomainLogin(PipelineStep):
     """
 
     def run_filter(self, user, *args, **kwargs):  # pylint: disable=arguments-differ
-        if user.email.endswith("uam.es"):
+        if user and user.email.endswith("uam.es"):
             raise StudentLoginRequested.PreventLogin(
                 "You can't login. UAM users should use ID-UAM.", redirect_to="", error_code="uamx__uam-domain-login-forbidden"
             )
+        else:
+            return {}
