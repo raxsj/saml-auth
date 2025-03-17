@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Package metadata for uamx_social_auth.
+Package metadata for platform_plugin_uamx_social_auth.
 """
 import os
 import re
@@ -117,7 +117,7 @@ def is_requirement(line):
     return line and line.strip() and not line.startswith(("-r", "#", "-e", "git+", "-c"))
 
 
-VERSION = get_version('uamx_social_auth', '__init__.py')
+VERSION = get_version('platform_plugin_uamx_social_auth', '__init__.py')
 
 if sys.argv[-1] == 'tag':
     print("Tagging the version on github:")
@@ -137,7 +137,7 @@ setup(
     author_email='angel.lareo@uam.es',
     url='https://github.com/UAMx/uamx-social-auth',
     packages=find_packages(
-        include=['uamx_social_auth', 'uamx_social_auth.*'],
+        include=['platform_plugin_uamx_social_auth', 'platform_plugin_uamx_social_auth.*'],
         exclude=["*tests"],
     ),
 
@@ -159,7 +159,7 @@ setup(
     ],
     entry_points={
         "lms.djangoapp": [
-            "uamx_social_auth = uamx_social_auth.apps:UamxSocialAuthConfig",
+            "platform_plugin_uamx_social_auth = platform_plugin_uamx_social_auth.apps:UamxSocialAuthConfig",
         ],
         "cms.djangoapp": [
         ],

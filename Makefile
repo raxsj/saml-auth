@@ -85,13 +85,13 @@ selfcheck: ## check that the Makefile is well-formed
 
 extract_translations: ## extract strings to be translated, outputting .mo files
 	rm -rf docs/_build
-	cd uamx_social_auth && i18n_tool extract --no-segment
+	cd platform_plugin_uamx_social_auth && i18n_tool extract --no-segment
 
 compile_translations: ## compile translation files, outputting .po files for each supported language
-	cd uamx_social_auth && i18n_tool generate
+	cd platform_plugin_uamx_social_auth && i18n_tool generate
 
 detect_changed_source_translations:
-	cd uamx_social_auth && i18n_tool changed
+	cd platform_plugin_uamx_social_auth && i18n_tool changed
 
 ifeq ($(OPENEDX_ATLAS_PULL),)
 pull_translations: ## Pull translations from Transifex
@@ -101,7 +101,7 @@ push_translations: ## push source translation files (.po) from Transifex
 	tx push -s
 
 dummy_translations: ## generate dummy translation (.po) files
-	cd uamx_social_auth && i18n_tool dummy
+	cd platform_plugin_uamx_social_auth && i18n_tool dummy
 
 build_dummy_translations: extract_translations dummy_translations compile_translations ## generate and compile dummy translation files
 

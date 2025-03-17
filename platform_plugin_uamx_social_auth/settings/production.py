@@ -10,13 +10,13 @@ def plugin_settings(settings):
             #"org.openedx.learning.student.registration.requested.v1": {
             #    "fail_silently": False,
             #    "pipeline": [
-            #        "uamx_social_auth.pipeline.StopUAMDomainRegister"
+            #        "platform_plugin_uamx_social_auth.pipeline.StopUAMDomainRegister"
             #    ]
             #},
             "org.openedx.learning.student.login.requested.v1": {
                 "fail_silently": False,
                 "pipeline": [
-                    "uamx_social_auth.pipeline.StopUAMDomainLogin"
+                    "platform_plugin_uamx_social_auth.pipeline.StopUAMDomainLogin"
                 ]
             }
         }
