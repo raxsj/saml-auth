@@ -159,9 +159,12 @@ setup(
     ],
     entry_points={
         "lms.djangoapp": [
-            "platform_plugin_uamx_social_auth = platform_plugin_uamx_social_auth.apps:UamxSocialAuthConfig",
+            "platform_plugin_uamx_social_auth = platform_plugin_uamx_social_auth"
+            ".apps:UamxSocialAuthConfig"
         ],
-        "cms.djangoapp": [
+        "lms.djangoapp": [
+            "platform_plugin_forum_email_notifier = platform_plugin_forum_email_notifier"
+            ".apps:PlatformPluginForumEmailNotifierConfig"
         ],
     }
 )
