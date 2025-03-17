@@ -63,7 +63,7 @@ For anything non-trivial, the best path is to open an issue in this
 repository with as many details about the issue you are facing as you
 can provide.
 
-https://github.com/UAMx/uamx-social-auth/issues
+https://github.com/UAMx/platform-plugin-uamx-social-auth/issues
 
 For more information about these options, see the `Getting Help <https://openedx.org/getting-help>`__ page.
 
@@ -116,12 +116,12 @@ Please do not report security issues in public. Please email security@openedx.or
     :target: https://pypi.python.org/pypi/uamx-social-auth/
     :alt: PyPI
 
-.. |ci-badge| image:: https://github.com/UAMx/uamx-social-auth/workflows/Python%20CI/badge.svg?branch=main
-    :target: https://github.com/UAMx/uamx-social-auth/actions
+.. |ci-badge| image:: https://github.com/UAMx/platform-plugin-uamx-social-auth/workflows/Python%20CI/badge.svg?branch=main
+    :target: https://github.com/UAMx/platform-plugin-uamx-social-auth/actions
     :alt: CI
 
-.. |codecov-badge| image:: https://codecov.io/github/UAMx/uamx-social-auth/coverage.svg?branch=main
-    :target: https://codecov.io/github/UAMx/uamx-social-auth?branch=main
+.. |codecov-badge| image:: https://codecov.io/github/UAMx/platform-plugin-uamx-social-auth/coverage.svg?branch=main
+    :target: https://codecov.io/github/UAMx/platform-plugin-uamx-social-auth?branch=main
     :alt: Codecov
 
 .. |doc-badge| image:: https://readthedocs.org/projects/uamx-social-auth/badge/?version=latest
@@ -132,8 +132,8 @@ Please do not report security issues in public. Please email security@openedx.or
     :target: https://pypi.python.org/pypi/uamx-social-auth/
     :alt: Supported Python versions
 
-.. |license-badge| image:: https://img.shields.io/github/license/UAMx/uamx-social-auth.svg
-    :target: https://github.com/UAMx/uamx-social-auth/blob/main/LICENSE.txt
+.. |license-badge| image:: https://img.shields.io/github/license/UAMx/platform-plugin-uamx-social-auth.svg
+    :target: https://github.com/UAMx/platform-plugin-uamx-social-auth/blob/main/LICENSE.txt
     :alt: License
 
 .. TODO: Choose one of the statuses below and remove the other status-badge lines.

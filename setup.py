@@ -135,7 +135,7 @@ setup(
     long_description=README + '\n\n' + CHANGELOG,
     author='Angel Lareo',
     author_email='angel.lareo@uam.es',
-    url='https://github.com/UAMx/uamx-social-auth',
+    url='https://github.com/UAMx/platform-plugin-uamx-social-auth',
     packages=find_packages(
         include=['platform_plugin_uamx_social_auth', 'platform_plugin_uamx_social_auth.*'],
         exclude=["*tests"],
@@ -161,10 +161,6 @@ setup(
         "lms.djangoapp": [
             "platform_plugin_uamx_social_auth = platform_plugin_uamx_social_auth"
             ".apps:UamxSocialAuthConfig"
-        ],
-        "lms.djangoapp": [
-            "platform_plugin_forum_email_notifier = platform_plugin_forum_email_notifier"
-            ".apps:PlatformPluginForumEmailNotifierConfig"
-        ],
+        ]
     }
 )
