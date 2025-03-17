@@ -95,16 +95,7 @@ detect_changed_source_translations:
 
 ifeq ($(OPENEDX_ATLAS_PULL),)
 pull_translations: ## Pull translations from Transifex
-	tx pull -t -a -f --mode reviewed --minimum-perc=1
-else
-# Experimental: OEP-58 Pulls translations using atlas
-pull_translations:
-	find uamx_social_auth/conf/locale -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
-	atlas pull $(OPENEDX_ATLAS_ARGS) translations/uamx-social-auth/uamx_social_auth/conf/locale:uamx_social_auth/conf/locale
-	python manage.py compilemessages
-
-	@echo "Translations have been pulled via Atlas and compiled."
-endif
+	tx pull -t -a -f --mode reviewed
 
 push_translations: ## push source translation files (.po) from Transifex
 	tx push -s
